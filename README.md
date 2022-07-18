@@ -24,7 +24,10 @@ http://localhost:8000
 ```
 
 #### Acesse o Adminer no browser
-  http://localhost:8090
+
+```
+http://localhost:8090
+```
 
 ## Apéndice
 
