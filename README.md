@@ -23,7 +23,11 @@ $ docker-compose up
 http://localhost:8000
 ```
 
+#### Acesse o Adminer no browser
+  http://localhost:8090
+
 ## Apéndice
 
-Nosso aluno [Yuri Koster](https://github.com/yurikoster1) criou outra opção do repositório organizando melhor os arquivos Docker, se quiserem utilizar basta clonar o branch ```more_organized```.
+Este repositório está atualizado para versão 9.0 do Laravel, 8.1.8 do PHP, MySQL 8.0, NGINX 1.23.0, Adminer(Para 
+Administração do MySQL via browser).
 
