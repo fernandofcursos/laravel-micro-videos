@@ -1,11 +1,12 @@
 <?php
 
-// namespace Database\Seeders;
+namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Genre;
 
-class CategorySeeder extends Seeder
+class GenresTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\Category::class, 100)->create();
+        //
+        Genre::factory(10)->create();
     }
 }
