@@ -17,8 +17,14 @@ class Category extends Model
     protected $fillable = [
         'name', 'description', 'is_active'
     ];
-    protected $dates=['delete_at'];
 
+    protected $casts = [
+        'is_active' => 'boolean'
+    ];
+    
+    protected $dates=['deleted_at'];
+
+    public $incrementing = false;
 
 
 }
