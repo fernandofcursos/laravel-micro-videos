@@ -1,4 +1,4 @@
-FROM php:8.1.8-fpm-alpine
+FROM php:8.2-fpm-alpine
 
 RUN apk add --no-cache shadow openssl bash mysql-client nodejs-current npm git
 RUN docker-php-ext-install pdo pdo_mysql
@@ -21,3 +21,5 @@ RUN rm -rf /var/www/html && ln -s public html
 USER www-data
 
 EXPOSE 9000
+
+ENTRYPOINT ["php-fpm"]

@@ -1,3 +1,3 @@
-FROM mysql:8.0
+FROM mysql:latest
 
 RUN usermod -u 1000 mysql
