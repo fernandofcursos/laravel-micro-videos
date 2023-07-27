@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Models;
 
-use App\Models\Genre;
+use App\Models\CastMember;
 use App\Models\Traits\Uuid;
 use PHPUnit\Framework\TestCase;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,7 +15,7 @@ class GenreTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->genre = new Genre();
+        $this->genre = new CastMember();
     }
 
     /**
@@ -40,7 +40,7 @@ class GenreTest extends TestCase
             Uuid::class
         ];
 
-        $genreTraits = array_keys(class_uses(Genre::class));
+        $genreTraits = array_keys(class_uses(CastMember::class));
         $this->assertEquals($traits, $genreTraits);
     }
 

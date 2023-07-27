@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Models;
 
-use App\Models\Genre;
+use App\Models\CastMember;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Ramsey\Uuid\Uuid;
@@ -24,8 +24,8 @@ class GenreTest extends TestCase
         // $response = $this->get('/');
 
         // $response->assertStatus(200);
-        Genre::factory(1)->create();
-        $genre = Genre::all();
+        CastMember::factory(1)->create();
+        $genre = CastMember::all();
         $this->assertCount(1, $genre);
 
         $GenreKey = array_keys($genre->first()->getAttributes());
@@ -45,7 +45,7 @@ class GenreTest extends TestCase
 
     public function test_create()
     {
-        $Genre = Genre::create(
+        $Genre = CastMember::create(
             [
                 'name' => 'teste'
             ]
@@ -59,13 +59,13 @@ class GenreTest extends TestCase
 
 
 
-        $Genre = Genre::create([
+        $Genre = CastMember::create([
             'name' => 'Genre1',
             'is_active' => false,
         ]);
         $this->assertFalse($Genre->is_active);
 
-        $Genre = Genre::create([
+        $Genre = CastMember::create([
             'name' => 'Genre1',
             'is_active' => true,
         ]);
@@ -74,7 +74,7 @@ class GenreTest extends TestCase
 
     public function test_update()
     {
-        $Genre = Genre::factory()->create(
+        $Genre = CastMember::factory()->create(
             [
                 'name' => 'test_genre',
                 'is_active'  => false
@@ -94,7 +94,7 @@ class GenreTest extends TestCase
 
     public function testDelete()
     {
-        $Genre = Genre::factory()->create()->first();
+        $Genre = CastMember::factory()->create()->first();
         $Genre->delete();
         $this->assertNotNull($Genre->deleted_at);
     }
@@ -111,7 +111,7 @@ class GenreTest extends TestCase
     public function testValidatedUuid()
     {
 
-        $categoria = Genre::factory()->create(
+        $categoria = CastMember::factory()->create(
             [
                 'name' => 'genero Teste UUID'
             ])->first();

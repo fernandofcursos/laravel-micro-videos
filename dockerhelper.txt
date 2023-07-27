@@ -1,8 +1,6 @@
 docker compose down
 
 rm -rf .docker/dbdata
- 
-sudo docker rm -f $(docker ps -a -q) 
 
 
 docker rmi -f $(docker images -q)
@@ -16,9 +14,13 @@ docker rm $(docker ps -a -q) to delete all stopped containers.
 docker volume rm $(docker volume ls -q) to delete all volumes.
 docker rmi $(docker images -q) to delete all images.
 
+sempre usar composer update
 
 Executei o seguintes passos: 
 1 - Exclui a pasta dbdata; 
 2 - Executei docker-compose up -d --build 
-3 - Executei docker-compose exe app bash 
+3 - Executei docker-compose exec app bash 
 4 - Executei php artisan migrate --seed
+
+php artisan make:model nomeModel --all (todo pacote)
+php artisan make:controller Api/nomeController (cria na pasta correta)

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Genre;
+use App\Models\CastMember;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class GenresTableSeeder extends Seeder
+class CastMembersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +16,8 @@ class GenresTableSeeder extends Seeder
     public function run()
     {
         //
-        Genre::factory(10)->create();
+        CastMember::factory(100)->create();
+
+
     }
 }

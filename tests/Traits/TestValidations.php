@@ -11,6 +11,9 @@ use Illuminate\Testing\TestResponse as TestingTestResponse;
 trait TestValidations
 {
 
+  protected abstract function model();
+  protected abstract function routeStore();
+  protected abstract function routeUpdate(); 
 
   protected function assertInvalidationStoreAction(
     array $data,

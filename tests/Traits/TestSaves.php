@@ -7,7 +7,10 @@ use Illuminate\Foundation\Testing\TestResponse as TestResponse;
 
 
 trait TestSaves
-{    
+{   
+    protected abstract function model();
+    protected abstract function routeStore();
+    protected abstract function routeUpdate(); 
     /**
      * assertStore
      *
