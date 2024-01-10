@@ -20,6 +20,7 @@ class Genre extends Model
     ];
 
     protected $casts = [
+        'id'=> 'string',
         'is_active' => 'boolean'
     ];
 

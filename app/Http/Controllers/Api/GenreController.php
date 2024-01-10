@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\CastMember;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BasicCrudController;
+
 
 class GenreController extends BasicCrudController
 {
@@ -15,7 +16,7 @@ class GenreController extends BasicCrudController
     ];
     
     protected function model()  {
-        return Catergory::class;
+        return Genre::class;
     }
    
     protected function rulesStore()
