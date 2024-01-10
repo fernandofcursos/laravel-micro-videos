@@ -42,7 +42,7 @@ abstract class BasicCrudController extends BasicCrudController
     public function show($id)
     {
         $obj = $this->findOrFail($id);
-        return obj;
+        return $obj;
     }
 
     public function update(Request $request, $id)

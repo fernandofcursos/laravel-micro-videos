@@ -35,6 +35,24 @@ class CastMemberControllerTest extends TestCase
         ->assertJson([$this->castMember->toArray()]);
     }
 
+    public function testInvalidationData()
+    {
+        
+        $data =[
+            'name' =>'',
+            'type' => ''
+           ];
+           $this->assertInvalidationStoreAction($data,'required');
+           $this->assertInvalidationUpdateAction($data,'required');
+    
+           $data=[
+            'type' => 's'
+           ] ;
+    
+           $this->assertInvalidationStoreAction($data,'in');
+           $this->assertInvalidationUpdateAction($data,'in');
+    
+    }
 
     public function testShow()
     {
@@ -100,24 +118,7 @@ class CastMemberControllerTest extends TestCase
         $this->assertNotNull(CastMember::withTrashed()->find($this->castmember->id));
     }
 
-    public function testInvalidationData()
-    {
-        
-        $data =[
-            'name' =>'',
-            'type' => ''
-           ];
-           $this->assertInvalidationStoreAction($data,'required');
-           $this->assertInvalidationUpdateAction($data,'required');
-    
-           $data=[
-            'type' => 's'
-           ] ;
-    
-           $this->assertInvalidationStoreAction($data,'in');
-           $this->assertInvalidationUpdateAction($data,'in');
-    
-    }
+   
     
     protected function assertInvalidationRequired(TestResponse $response)
     {

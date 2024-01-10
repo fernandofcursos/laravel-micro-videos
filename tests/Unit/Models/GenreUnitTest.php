@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class GenreTest extends TestCase
+class GenreUnitTest extends TestCase
 {
     private $genre;
 

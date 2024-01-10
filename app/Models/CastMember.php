@@ -17,4 +17,10 @@ class CastMember extends Model
     protected $fillabel = ['name', 'type'];
     protected $dates = ['deleted_at'];
     public $incrementing = false;
+
+    protected $casts = [
+        'id' => 'string',
+        'type' => 'integer'
+    ];
+
 }

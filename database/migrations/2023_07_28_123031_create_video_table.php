@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cast_members', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
-            $table->smallInteger('type')->default(1);
+            $table->string('title');
+            $table->text('description');
+            $table->smallInteger('year_launched');
+            $table->boolean('opened')->default(false);
+            $table->string('rating', 3);
+            $table->smallInteger('duration');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cast_members');
+        Schema::dropIfExists('videos');
     }
 };

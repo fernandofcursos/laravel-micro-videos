@@ -24,3 +24,18 @@ Executei o seguintes passos:
 
 php artisan make:model nomeModel --all (todo pacote)
 php artisan make:controller Api/nomeController (cria na pasta correta)
+php artisan make:factory NomeFactory
+php artisan make:migration create_nometabela_table --create=nometabela
+php artisan make:seeder NomeTabelaPluraldoTable
+
+php artisan migrate:refresh --seed
+
+=======================
+
+Erro Your serialized closure might have been modified or it's unsafe to be unserialized.
+
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
+# npm run dev - não precisou
+php artisan key:generate

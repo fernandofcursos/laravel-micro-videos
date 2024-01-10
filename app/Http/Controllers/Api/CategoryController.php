@@ -17,7 +17,7 @@ class CategoryController extends BasicCrudController
     ];
 
     protected function model()  {
-        return Catergory::class;
+        return Category::class;
     }
    
     protected function rulesStore()
