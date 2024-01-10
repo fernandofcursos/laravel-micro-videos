@@ -39,3 +39,8 @@ php artisan config:clear
 php artisan view:clear
 # npm run dev - não precisou
 php artisan key:generate
+
+======================= git hub
+git add .
+git commit . - m "mensagem""
+git push

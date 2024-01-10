@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\traits\UploadFiles;
+// use App\Models\traits\UploadFiles;
 use App\Models\traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\DB;
 
 class Video extends Model
 {
-    use SoftDeletes, Uuid, UploadFiles;
+    // use SoftDeletes, Uuid, UploadFiles;
+    use SoftDeletes, Uuid;
 
     const RATING_LIST = ['L', '10', '12', '14', '16', '18'];
 
@@ -104,9 +105,9 @@ class Video extends Model
         return $this->belongsToMany(Category::class)->withTrashed();
     }
 
-    public function generos()
+    public function genres()
     {
-        return $this->belongsToMany(Genero::class)->withTrashed();
+        return $this->belongsToMany(Genre::class)->withTrashed();
     }
 
     protected function uploadDir()

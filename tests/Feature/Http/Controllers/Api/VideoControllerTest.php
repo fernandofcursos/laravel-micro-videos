@@ -50,7 +50,9 @@ class VideoControllerTest extends TestCase
             'description'=>'',
             'year_launched' => '',
             'rating' => '',
-            'duration' => ''
+            'duration' => '',
+            'categories_id' => '',
+            'genres_id' => '' 
         ];
 
         $this->assertInvalidationStoreAction($data, 'required');
@@ -159,7 +161,42 @@ class VideoControllerTest extends TestCase
       
 
     }
-    
+
+    public function testInvalidationCategoriesIdField()
+    {
+        $data = [
+            'categories_id'=> 'a'
+        ];
+
+        $this->assertInvalidationStoreAction($data, 'array');
+        $this->assertInvalidationUpdateAction($data, 'array');
+
+        $data = [
+            'categories_id'=> [100]
+        ];
+
+        $this->assertInvalidationStoreAction($data, 'exists');
+        $this->assertInvalidationUpdateAction($data, 'exits');
+
+    }
+   
+    public function testInvalidationGenresIdField()
+    {
+        $data = [
+            'categories_id'=> 'a'
+        ];
+
+        $this->assertInvalidationStoreAction($data, 'array');
+        $this->assertInvalidationUpdateAction($data, 'array');
+
+        $data = [
+            'categories_id'=> [100]
+        ];
+
+        $this->assertInvalidationStoreAction($data, 'exists');
+        $this->assertInvalidationUpdateAction($data, 'exits');
+
+    }
     public function testDelete()
     {
         $video = video::factory()->create();
@@ -169,61 +206,7 @@ class VideoControllerTest extends TestCase
         $this->assertNotNull(video::withTrashed()->find($video->id));
     }
 
-    // public function testInvalidationData()
-    // {
-        
-    //    $data =[
-    //     'name' =>';'
-    //    ];
-    //    $this->assertInvalidationStoreAction($data,'required');
-    //    $this->assertInvalidationUpdateAction($data,'required');
-
-    //    $data=[
-    //     'name' => str_repeat('a', 256)
-    //    ] ;
-
-    //    $this->assertInvalidationStoreAction($data,'max.string',['max'=>255]);
-    //    $this->assertInvalidationUpdateAction($data,'max.string',['max'=>255]);
-    //    $data=[
-    //     'is_active' => 'a'
-    //    ] ;
-    //    $this->assertInvalidationStoreAction($data,'boolean');
-    //    $this->assertInvalidationUpdateAction($data,'boolean');
-       
-                 
-    // }
-
-
-
-    // protected function assertInvalidationRequired(TestResponse $response)
-    // {
-
-    //     $this->assertInvalidationFields(
-    //             $response, ['name'],'required'
-    //         );
-    //     $response->assertJsonMissingValidationErrors(['is_active']);    
-        
-    // }
-
-
-    // protected function assertInvalidationMax(TestResponse $response)
-    // {
-
-    //     $this
-    //         ->assertInvalidationFields(
-    //             $response, ['name'],'max.string',['max' => 255]
-    //         );
-
- 
-    // }
-
-    // protected function assertInvalidationBoolean(TestResponse $response)
-    // {
-    //     $this
-    //         ->assertInvalidationFields(
-    //             $response, ['is_active'],'boolean'
-    //         );
-    // }
+  
 
     public function testDestroy()
     {
@@ -251,3 +234,4 @@ class VideoControllerTest extends TestCase
     }
 
 }
+  

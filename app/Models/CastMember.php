@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CastMember extends Model
 {
+    use HasFactory;
     use Uuid, SoftDeletes;
 
     const TYPE_DIRECTOR=1;

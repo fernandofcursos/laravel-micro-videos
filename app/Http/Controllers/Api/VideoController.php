@@ -48,12 +48,16 @@ class VideoController extends BasicCrudController
 
     public function store(Request $request)
     {
-        $this->addRuleIfGeneroHasCategories($request);
+        // $this->addRuleIfGeneroHasCategories($request);
         $validatedData = $this->validate($request, $this->rulesStore());
+        /** @var Video $obj */
         $obj = $this->model()::create($validatedData);
+        $obj->categories()->sync(get('categories_id'));
         $obj->refresh();
-        $resource = $this->resource();
-        return new $resource($obj);
+        return $obj;
+        // $resource = $this->resource();
+        // return new $resource($obj);
+    
     }
 
     public function update(Request $request, $id)

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-abstract class BasicCrudController extends BasicCrudController
+abstract class BasicCrudController extends Controller
 {
     protected abstract function model();
     protected abstract function rulesStore();
